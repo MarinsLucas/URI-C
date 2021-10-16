@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+int isFibo(long long n) {
+    long long raiz1 = 5 * n * n + 4;
+    long long raiz2 = 5 * n * n - 4;
+    long long a = sqrt(raiz1);
+    long long b = sqrt(raiz2);
+    return a * a == raiz1 || b * b == raiz2;
+}
+
+int main() {
+    long long n, i = 1, r = 0;
+    while (scanf("%lld", &n) != EOF) {
+        while (n >= i) {
+            if (!isFibo(++r)) {
+                i++;
+            }
+        }
+        printf("%lld\n", r);
+    }
+
+    return 0;
+}
